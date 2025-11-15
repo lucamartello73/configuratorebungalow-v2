@@ -6,7 +6,7 @@ import { HeaderConfigurator } from '@/components/layout/header-configuratore'
 
 export default function ModelliPage() {
   const [modelli, setModelli] = useState<any[]>([])
-  const [filtroMateriale, setFiltroMateriale] = useState('')
+  const [filtroCategoria, setFiltroCategoria] = useState('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -18,15 +18,15 @@ export default function ModelliPage() {
     const { data, error } = await supabase
       .from('modelli_standard')
       .select('*')
-      .order('creato_il', { ascending: false })
+      .order('id', { ascending: true })
     
     if (data) setModelli(data)
     if (error) console.error('Errore caricamento modelli:', error)
     setLoading(false)
   }
 
-  const modelliFiltrati = filtroMateriale
-    ? modelli.filter(m => m.materiale?.includes(filtroMateriale))
+  const modelliFiltrati = filtroCategoria
+    ? modelli.filter(m => m.categoria === filtroCategoria)
     : modelli
 
   return (
@@ -34,17 +34,40 @@ export default function ModelliPage() {
       <HeaderConfigurator title="Modelli Standard" />
       
       <div className="container mx-auto px-4 py-8">
-        <div className="mb-6 flex items-center gap-4">
-          <label className="font-semibold">Filtra per materiale:</label>
-          <select 
-            className="border rounded-lg px-4 py-2 bg-white shadow-sm"
-            onChange={(e) => setFiltroMateriale(e.target.value)}
-          >
-            <option value="">Tutti</option>
-            <option value="20">Tavole 20mm</option>
-            <option value="30">Tavole 30mm</option>
-            <option value="lamellare">Lamellare</option>
-          </select>
+        <div className="mb-8 flex flex-wrap items-center gap-4">
+          <label className="font-semibold text-lg">Filtra per categoria:</label>
+          <div className="flex gap-2">
+            <button 
+              onClick={() => setFiltroCategoria('')}
+              className={`px-4 py-2 rounded-lg transition ${filtroCategoria === '' ? 'bg-blue-600 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+            >
+              Tutti
+            </button>
+            <button 
+              onClick={() => setFiltroCategoria('carport')}
+              className={`px-4 py-2 rounded-lg transition ${filtroCategoria === 'carport' ? 'bg-blue-600 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+            >
+              Carport
+            </button>
+            <button 
+              onClick={() => setFiltroCategoria('casette')}
+              className={`px-4 py-2 rounded-lg transition ${filtroCategoria === 'casette' ? 'bg-blue-600 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+            >
+              Casette
+            </button>
+            <button 
+              onClick={() => setFiltroCategoria('winter')}
+              className={`px-4 py-2 rounded-lg transition ${filtroCategoria === 'winter' ? 'bg-blue-600 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+            >
+              Winter House
+            </button>
+            <button 
+              onClick={() => setFiltroCategoria('eden')}
+              className={`px-4 py-2 rounded-lg transition ${filtroCategoria === 'eden' ? 'bg-blue-600 text-white' : 'bg-gray-200 hover:bg-gray-300'}`}
+            >
+              Eden
+            </button>
+          </div>
         </div>
 
         {loading ? (
