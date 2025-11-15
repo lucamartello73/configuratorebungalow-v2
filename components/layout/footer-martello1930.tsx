@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { MapPin, Phone, Mail, ExternalLink } from "lucide-react"
+import { MapPin, Mail, ExternalLink } from "lucide-react"
 
 export function FooterMartello1930() {
   return (
@@ -55,7 +55,7 @@ export function FooterMartello1930() {
                 href="tel:+390185167656"
                 className="flex items-center gap-2 hover:text-primary transition"
               >
-                <Phone className="h-4 w-4 text-primary" />
+                <span className="text-lg">📞</span>
                 <span>+39 0185 167 656</span>
               </a>
 
