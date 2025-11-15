@@ -16,7 +16,7 @@ export default function Home() {
             priority
           />
           <h1 className="text-6xl font-extrabold text-gray-900 mb-4">
-            Casette in Legno
+            Casette in Legno 🏡
           </h1>
           <p className="text-2xl text-gray-700 font-medium mb-2">Sistema Martello1930</p>
           <p className="text-xl text-gray-600">Dal 1930 • Qualità Artigianale</p>
