@@ -23,7 +23,7 @@ export default function Home() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <Link href="/modelli">
+          <Link href="/catalogo">
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition cursor-pointer group">
               <Package className="w-16 h-16 text-green-600 mb-4 mx-auto group-hover:scale-110 transition" />
               <h2 className="text-2xl font-bold mb-2 text-center">Modelli a Catalogo</h2>
