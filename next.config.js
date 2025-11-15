@@ -12,6 +12,10 @@ const nextConfig = {
       },
     ],
   },
+  // Force rebuild - disable cache
+  generateBuildId: async () => {
+    return `build-${Date.now()}`
+  },
 }
 
 module.exports = nextConfig
