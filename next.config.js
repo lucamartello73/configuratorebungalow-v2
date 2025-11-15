@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'page.gensparksite.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.genspark.ai',
+      },
     ],
   },
 }
