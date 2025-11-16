@@ -6,343 +6,176 @@ export default function Home() {
     {
       id: 1,
       nome: "Carport RIMINI Basic",
-      categoria: "Carport",
-      prezzo: "4.500",
-      dimensioni: "3m × 6m",
-      descrizione: "Protezione doppia per 2 auto in legno lamellare",
-      immagine: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+      immagine: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
+      descrizione: "Carport doppio 3x6m"
     },
     {
       id: 2,
-      nome: "Casetta PENT",
-      categoria: "Casette",
-      prezzo: "3.200",
-      dimensioni: "3m × 2m",
-      descrizione: "Casetta attrezzi compatta in pino nordico 28mm",
-      immagine: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop"
+      nome: "Carport RIMINI Plus",
+      immagine: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=400&fit=crop",
+      descrizione: "Carport spazioso 4x6m"
     },
     {
       id: 3,
-      nome: "Winter House",
-      categoria: "Abitabili",
-      prezzo: "8.900",
-      dimensioni: "4m × 4m",
-      descrizione: "Casa da giardino coibentata uso invernale",
-      immagine: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=600&fit=crop"
+      nome: "Carport RIMINI XL",
+      immagine: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop",
+      descrizione: "Carport extra large 5x8m"
     },
     {
       id: 4,
-      nome: "Eden Classic",
-      categoria: "Design",
-      prezzo: "4.700",
-      dimensioni: "3m × 3m",
-      descrizione: "Studio moderno con ampie vetrate",
-      immagine: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop"
+      nome: "Casetta PENT 3x2",
+      immagine: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop",
+      descrizione: "Casetta attrezzi compatta"
+    },
+    {
+      id: 5,
+      nome: "Casetta PENT 4x3",
+      immagine: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop",
+      descrizione: "Casetta multifunzione"
+    },
+    {
+      id: 6,
+      nome: "Winter House 4x4",
+      immagine: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop",
+      descrizione: "Casa coibentata abitabile"
+    },
+    {
+      id: 7,
+      nome: "Winter House 5x4",
+      immagine: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",
+      descrizione: "Casa premium isolata"
+    },
+    {
+      id: 8,
+      nome: "Eden Classic 3x3",
+      immagine: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop",
+      descrizione: "Design moderno con vetrate"
+    },
+    {
+      id: 9,
+      nome: "Eden Deluxe 4x3",
+      immagine: "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=600&h=400&fit=crop",
+      descrizione: "Studio/ufficio da giardino"
     }
   ]
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header Navigation */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+    <div className="min-h-screen bg-gray-50">
+      {/* Header Professionale - Identico a Pensiline */}
+      <header className="bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-start gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3">
+            <div className="flex-shrink-0">
               <Image 
                 src="https://page.gensparksite.com/img/5b071e78-f86b-448e-8321-b9d3f78d5be9.jpg"
-                alt="Martello1930"
-                width={60}
-                height={36}
+                alt="Martello1930 Logo"
+                width={80}
+                height={80}
                 className="rounded"
               />
-              <span className="text-xl font-bold text-gray-900">Martello1930</span>
-            </Link>
-
-            {/* Navigation Menu */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-900 font-semibold hover:text-blue-600 transition">
-                Home
-              </Link>
-              <Link href="/catalogo" className="text-gray-600 hover:text-blue-600 transition">
-                Catalogo
-              </Link>
-              <Link href="/configura" className="text-gray-600 hover:text-blue-600 transition">
-                Configuratore
-              </Link>
-              <a href="#chi-siamo" className="text-gray-600 hover:text-blue-600 transition">
-                Chi Siamo
-              </a>
-              <a href="#contatti" className="text-gray-600 hover:text-blue-600 transition">
-                Contatti
-              </a>
-            </nav>
-
-            {/* CTA Button */}
-            <Link href="/configura">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold transition">
-                Richiedi Preventivo
-              </button>
-            </Link>
+            </div>
+            
+            {/* Info Aziendali Complete */}
+            <div className="flex-1">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                MARTELLO 1930 — Legnami • Brico • Outdoor
+              </h1>
+              <div className="text-sm text-gray-600 space-y-1">
+                <p><span className="font-semibold">Sede:</span> Via Traversaro, 13 — 16039 SESTRI LEVANTE (GE)</p>
+                <p><span className="font-semibold">Esposizione:</span> Via Aurelia — SESTRI LEVANTE</p>
+                <p><span className="font-semibold">Orario:</span> lun–ven 8:00–12:00 / 14:00–18:00 — sab 08:00–12:00</p>
+                <p>
+                  <span className="font-semibold">Contatto:</span> Tel 0185.41793 — 
+                  <a href="mailto:info@martello1930.net" className="text-[#1b6d7f] hover:underline ml-1">info@martello1930.net</a> — 
+                  <span className="ml-1">PI 00167970995</span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-green-50 py-20">
+      {/* Hero Section - Titolo Grande Centrato */}
+      <section className="bg-white py-12 border-b border-gray-200">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Casette in Legno di Qualità
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8">
-              Dal 1930 realizziamo strutture in legno su misura per il tuo giardino
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/catalogo">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition shadow-lg">
-                  Esplora il Catalogo
-                </button>
-              </Link>
-              <Link href="/configura">
-                <button className="bg-white hover:bg-gray-50 text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition shadow-lg">
-                  Configura Su Misura
-                </button>
-              </Link>
-            </div>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center">
+            Scegli il Modello di Casetta
+          </h2>
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              I Nostri Modelli
-            </h2>
-            <p className="text-lg text-gray-600">
-              Carport, casette da giardino e strutture abitabili di alta qualità
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {modelli.map((modello) => (
-              <div key={modello.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                <div className="relative h-56 bg-gray-200">
-                  <Image
-                    src={modello.immagine}
-                    alt={modello.nome}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-block px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full">
-                      {modello.categoria}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {modello.nome}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-3">
-                    {modello.descrizione}
-                  </p>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm text-gray-500">{modello.dimensioni}</span>
-                    <span className="text-2xl font-bold text-blue-600">€{modello.prezzo}</span>
-                  </div>
-                  <Link href={`/catalogo?modello=${modello.id}`}>
-                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-semibold transition">
-                      Dettagli
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/catalogo">
-              <button className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold transition">
-                Vedi Tutti i Modelli (9 totali)
-              </button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Come Funziona
-            </h2>
-            <p className="text-lg text-gray-600">
-              Tre semplici passi per la tua casetta perfetta
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white p-8 rounded-xl shadow-md text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-white">1</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Scegli il Modello</h3>
-              <p className="text-gray-600">
-                Esplora il nostro catalogo e seleziona la struttura che preferisci o configura su misura
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md text-center">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-white">2</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Personalizza</h3>
-              <p className="text-gray-600">
-                Scegli dimensioni, materiali e accessori in base alle tue esigenze
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl font-bold text-white">3</span>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Ricevi il Preventivo</h3>
-              <p className="text-gray-600">
-                Ti contattiamo entro 24h con un preventivo dettagliato e tempi di consegna
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section id="chi-siamo" className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  Perché Scegliere Martello1930
-                </h2>
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <span className="text-2xl">🏆</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Qualità Artigianale</h3>
-                      <p className="text-gray-600">
-                        Oltre 90 anni di esperienza nella lavorazione del legno selezionato
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                      <span className="text-2xl">⚡</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Preventivo Rapido</h3>
-                      <p className="text-gray-600">
-                        Ricevi una stima personalizzata in meno di 24 ore
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                      <span className="text-2xl">🎯</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Su Misura</h3>
-                      <p className="text-gray-600">
-                        Ogni struttura è personalizzabile secondo le tue necessità
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
-                      <span className="text-2xl">🚚</span>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">Consegna e Montaggio</h3>
-                      <p className="text-gray-600">
-                        Servizio completo di trasporto e installazione professionale
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
+      {/* Grid Layout con Immagini - Identico a Pensiline */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {modelli.map((modello) => (
+            <div 
+              key={modello.id}
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+            >
+              {/* Immagine Prodotto */}
+              <div className="relative h-48 w-full bg-gray-200">
                 <Image
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"
-                  alt="Workshop Martello1930"
+                  src={modello.immagine}
+                  alt={modello.nome}
                   fill
                   className="object-cover"
                 />
               </div>
+              
+              {/* Contenuto Card */}
+              <div className="p-4">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {modello.nome}
+                </h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  {modello.descrizione}
+                </p>
+                
+                {/* Pulsante Dettagli - Stile Teal */}
+                <Link href={`/catalogo?modello=${modello.id}`}>
+                  <button className="w-full bg-[#1b6d7f] hover:bg-[#155a6a] text-white font-semibold py-2.5 px-4 rounded transition-colors duration-200">
+                    Dettagli
+                  </button>
+                </Link>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contatti" className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Martello1930</h3>
-              <p className="text-gray-400 text-sm">
-                Dal 1930 produciamo strutture in legno di alta qualità per il tuo giardino.
-              </p>
-            </div>
+      {/* Sezione CTA Secondaria */}
+      <section className="bg-white py-12 border-t border-gray-200">
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            Non trovi il modello adatto?
+          </h3>
+          <p className="text-lg text-gray-600 mb-6">
+            Configura la tua casetta su misura con il nostro configuratore interattivo
+          </p>
+          <Link href="/configura">
+            <button className="bg-[#1b6d7f] hover:bg-[#155a6a] text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-200">
+              Configuratore Su Misura
+            </button>
+          </Link>
+        </div>
+      </section>
 
-            <div>
-              <h4 className="font-bold mb-4">Link Rapidi</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/" className="text-gray-400 hover:text-white transition">Home</Link></li>
-                <li><Link href="/catalogo" className="text-gray-400 hover:text-white transition">Catalogo</Link></li>
-                <li><Link href="/configura" className="text-gray-400 hover:text-white transition">Configuratore</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Contatti</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>Via Aurelia, Sestri Levante (GE)</li>
-                <li>Tel: +39 0185 167 656</li>
-                <li>Email: soluzioni@martello1930.net</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold mb-4">Orari</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>Lun - Ven: 8:00 - 18:00</li>
-                <li>Sabato: 9:00 - 13:00</li>
-                <li>Domenica: Chiuso</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
-            <p>© 2025 Martello1930. Tutti i diritti riservati.</p>
-          </div>
+      {/* Footer Semplice */}
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-gray-400">
+            © 2025 Martello1930 - Via Traversaro, 13 — 16039 SESTRI LEVANTE (GE) - Tel 0185.41793
+          </p>
         </div>
       </footer>
 
-      {/* WhatsApp FAB */}
+      {/* WhatsApp FAB - Discreto */}
       <a
         href="https://wa.me/390185167656"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110 z-50"
+        className="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#20BA5A] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110 z-50"
         aria-label="Contattaci su WhatsApp"
       >
         <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
