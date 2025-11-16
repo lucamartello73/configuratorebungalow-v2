@@ -33,7 +33,7 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h2 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
-                    📦 Sfoglia il Catalogo
+                    📦 Sfoglia il Catalogo ✨ NUOVO
                   </h2>
                   <p className="text-lg text-gray-600">
                     Guarda i nostri <strong>9 modelli standard</strong> con foto, prezzi e caratteristiche
@@ -56,7 +56,7 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h2 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition">
-                    🛠️ Configura Su Misura
+                    🛠️ Configura Su Misura 🔥 AGGIORNATO
                   </h2>
                   <p className="text-lg text-gray-600">
                     Crea la <strong>tua casetta personalizzata</strong> scegliendo dimensioni e materiali
