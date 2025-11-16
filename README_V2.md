@@ -4,6 +4,8 @@
 
 Sistema di configurazione online per casette in legno da giardino, carport, pergole e strutture su misura.
 
+> ✅ **Status**: Production Ready | **Deploy**: Automatico | **Ultima verifica**: 2025-11-16
+
 ---
 
 ## ✨ Novità Versione 2
