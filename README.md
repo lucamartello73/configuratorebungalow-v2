@@ -2,6 +2,12 @@
 
 Sistema di configurazione online per casette in legno da giardino, carport, pergole e strutture su misura.
 
+## 🚀 Deploy Rapido
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flucamartello73%2Fconfiguratorbungalow&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY&envDescription=Credenziali%20Supabase%20necessarie%20per%20il%20funzionamento&envLink=https%3A%2F%2Fsupabase.com%2Fdashboard%2Fproject%2F_%2Fsettings%2Fapi&project-name=configuratore-casette-legno&repository-name=configuratore-casette-legno)
+
+📖 **Guida completa**: Vedi [DEPLOY_NOW.md](DEPLOY_NOW.md) per istruzioni dettagliate
+
 ## 🎯 Funzionalità
 
 ### 👥 Lato Cliente
@@ -130,10 +136,16 @@ configuratorebungalow/
 
 ## 🚀 Deploy su Vercel
 
+### Deploy con 1 Click
+Clicca sul bottone "Deploy with Vercel" in alto per un deploy immediato.
+
+### Deploy Manuale
 1. Push su GitHub
 2. Connetti repository su [Vercel](https://vercel.com)
 3. Configura variabili d'ambiente da `.env.local`
 4. Deploy automatico
+
+📖 **Guida dettagliata**: [DEPLOY_NOW.md](DEPLOY_NOW.md) | [DEPLOYMENT_INSTRUCTIONS.md](DEPLOYMENT_INSTRUCTIONS.md)
 
 ## 📞 Contatti Aziendali
 
