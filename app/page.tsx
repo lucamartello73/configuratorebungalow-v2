@@ -23,52 +23,116 @@ export default function Home() {
         </div>
 
         {/* Galleria Immagini Casette */}
-        <div className="max-w-6xl mx-auto mb-12">
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Carport */}
-            <div className="relative h-64 rounded-xl overflow-hidden shadow-xl group">
+        <div className="max-w-7xl mx-auto mb-12">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">I Nostri Modelli</h2>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-6">
+            {/* Carport RIMINI Basic */}
+            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
               <Image
                 src="https://www.genspark.ai/api/files/s/ZVQs8due"
-                alt="Carport RIMINI"
+                alt="Carport RIMINI Basic 3x6"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                 <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-1">Carport</h3>
-                  <p className="text-sm">Protezione per auto e camper</p>
+                  <span className="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold mb-2">CARPORT</span>
+                  <h3 className="text-2xl font-bold mb-1">Carport RIMINI Basic</h3>
+                  <p className="text-sm mb-1">3m × 6m - Doppio per 2 auto</p>
+                  <p className="text-lg font-bold text-green-400">€4.500</p>
                 </div>
               </div>
             </div>
 
-            {/* Casetta Attrezzi */}
-            <div className="relative h-64 rounded-xl overflow-hidden shadow-xl group">
+            {/* Carport RIMINI Plus */}
+            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
+              <Image
+                src="https://www.genspark.ai/api/files/s/9S87BoP5"
+                alt="Carport RIMINI Plus 4x6"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                <div className="text-white">
+                  <span className="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold mb-2">CARPORT</span>
+                  <h3 className="text-2xl font-bold mb-1">Carport RIMINI Plus</h3>
+                  <p className="text-sm mb-1">4m × 6m - Spazioso per camper</p>
+                  <p className="text-lg font-bold text-green-400">€5.800</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Carport RIMINI XL */}
+            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
+              <Image
+                src="https://www.genspark.ai/api/files/s/uwoU3rUe"
+                alt="Carport RIMINI XL 5x8"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                <div className="text-white">
+                  <span className="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold mb-2">CARPORT</span>
+                  <h3 className="text-2xl font-bold mb-1">Carport RIMINI XL</h3>
+                  <p className="text-sm mb-1">5m × 8m - Extra large per 3 veicoli</p>
+                  <p className="text-lg font-bold text-green-400">€8.200</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Casetta PENT 3x2 */}
+            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
               <Image
                 src="https://www.genspark.ai/api/files/s/NACsfzir"
-                alt="Casetta PENT"
+                alt="Casetta PENT 3x2"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                 <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-1">Casette</h3>
-                  <p className="text-sm">Spazio per attrezzi e hobbies</p>
+                  <span className="inline-block px-3 py-1 bg-amber-600 rounded-full text-xs font-bold mb-2">CASETTE</span>
+                  <h3 className="text-2xl font-bold mb-1">Casetta PENT 3×2</h3>
+                  <p className="text-sm mb-1">Pino nordico 28mm - Compatta</p>
+                  <p className="text-lg font-bold text-green-400">€3.200</p>
                 </div>
               </div>
             </div>
 
-            {/* Winter House */}
-            <div className="relative h-64 rounded-xl overflow-hidden shadow-xl group">
+            {/* Winter House 4x4 */}
+            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
               <Image
                 src="https://www.genspark.ai/api/files/s/R02xtVRN"
-                alt="Winter House"
+                alt="Winter House 4x4"
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                 <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-1">Winter House</h3>
-                  <p className="text-sm">Abitabili tutto l'anno</p>
+                  <span className="inline-block px-3 py-1 bg-purple-600 rounded-full text-xs font-bold mb-2">WINTER HOUSE</span>
+                  <h3 className="text-2xl font-bold mb-1">Winter House 4×4</h3>
+                  <p className="text-sm mb-1">70mm isolato - Abitabile</p>
+                  <p className="text-lg font-bold text-green-400">€8.900</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Eden Classic 3x3 */}
+            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
+              <Image
+                src="https://www.genspark.ai/api/files/s/HwoHJfJe"
+                alt="Eden Classic 3x3"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                <div className="text-white">
+                  <span className="inline-block px-3 py-1 bg-green-600 rounded-full text-xs font-bold mb-2">EDEN DESIGN</span>
+                  <h3 className="text-2xl font-bold mb-1">Eden Classic 3×3</h3>
+                  <p className="text-sm mb-1">Design moderno con vetrate</p>
+                  <p className="text-lg font-bold text-green-400">€4.700</p>
                 </div>
               </div>
             </div>
