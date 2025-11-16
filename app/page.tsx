@@ -23,12 +23,12 @@ export default function Home() {
         </div>
 
         {/* Galleria Immagini Casette */}
-        <div className="max-w-7xl mx-auto mb-12">
+        <div className="max-w-6xl mx-auto mb-16">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">I Nostri Modelli</h2>
           
-          <div className="grid md:grid-cols-3 gap-6 mb-6">
-            {/* Carport RIMINI Basic */}
-            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Carport RIMINI */}
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
               <Image
                 src="https://www.genspark.ai/api/files/s/ZVQs8due"
                 alt="Carport RIMINI Basic 3x6"
@@ -37,54 +37,16 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                 <div className="text-white">
-                  <span className="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold mb-2">CARPORT</span>
-                  <h3 className="text-2xl font-bold mb-1">Carport RIMINI Basic</h3>
-                  <p className="text-sm mb-1">3m × 6m - Doppio per 2 auto</p>
-                  <p className="text-lg font-bold text-green-400">€4.500</p>
+                  <span className="inline-block px-2 py-1 bg-blue-500 rounded text-xs font-semibold mb-1">CARPORT</span>
+                  <h3 className="text-xl font-bold mb-1">Carport RIMINI</h3>
+                  <p className="text-xs mb-1">Da 3×6m a 5×8m</p>
+                  <p className="text-sm font-bold text-green-300">Da €4.500</p>
                 </div>
               </div>
             </div>
 
-            {/* Carport RIMINI Plus */}
-            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
-              <Image
-                src="https://www.genspark.ai/api/files/s/9S87BoP5"
-                alt="Carport RIMINI Plus 4x6"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-                <div className="text-white">
-                  <span className="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold mb-2">CARPORT</span>
-                  <h3 className="text-2xl font-bold mb-1">Carport RIMINI Plus</h3>
-                  <p className="text-sm mb-1">4m × 6m - Spazioso per camper</p>
-                  <p className="text-lg font-bold text-green-400">€5.800</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Carport RIMINI XL */}
-            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
-              <Image
-                src="https://www.genspark.ai/api/files/s/uwoU3rUe"
-                alt="Carport RIMINI XL 5x8"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-                <div className="text-white">
-                  <span className="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold mb-2">CARPORT</span>
-                  <h3 className="text-2xl font-bold mb-1">Carport RIMINI XL</h3>
-                  <p className="text-sm mb-1">5m × 8m - Extra large per 3 veicoli</p>
-                  <p className="text-lg font-bold text-green-400">€8.200</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Casetta PENT 3x2 */}
-            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
+            {/* Casetta PENT */}
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
               <Image
                 src="https://www.genspark.ai/api/files/s/NACsfzir"
                 alt="Casetta PENT 3x2"
@@ -93,16 +55,16 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                 <div className="text-white">
-                  <span className="inline-block px-3 py-1 bg-amber-600 rounded-full text-xs font-bold mb-2">CASETTE</span>
-                  <h3 className="text-2xl font-bold mb-1">Casetta PENT 3×2</h3>
-                  <p className="text-sm mb-1">Pino nordico 28mm - Compatta</p>
-                  <p className="text-lg font-bold text-green-400">€3.200</p>
+                  <span className="inline-block px-2 py-1 bg-amber-500 rounded text-xs font-semibold mb-1">CASETTE</span>
+                  <h3 className="text-xl font-bold mb-1">Casetta PENT</h3>
+                  <p className="text-xs mb-1">Pino nordico 28mm</p>
+                  <p className="text-sm font-bold text-green-300">Da €3.200</p>
                 </div>
               </div>
             </div>
 
-            {/* Winter House 4x4 */}
-            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
+            {/* Winter House */}
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
               <Image
                 src="https://www.genspark.ai/api/files/s/R02xtVRN"
                 alt="Winter House 4x4"
@@ -111,16 +73,16 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                 <div className="text-white">
-                  <span className="inline-block px-3 py-1 bg-purple-600 rounded-full text-xs font-bold mb-2">WINTER HOUSE</span>
-                  <h3 className="text-2xl font-bold mb-1">Winter House 4×4</h3>
-                  <p className="text-sm mb-1">70mm isolato - Abitabile</p>
-                  <p className="text-lg font-bold text-green-400">€8.900</p>
+                  <span className="inline-block px-2 py-1 bg-purple-500 rounded text-xs font-semibold mb-1">WINTER HOUSE</span>
+                  <h3 className="text-xl font-bold mb-1">Winter House</h3>
+                  <p className="text-xs mb-1">70mm isolato</p>
+                  <p className="text-sm font-bold text-green-300">Da €8.900</p>
                 </div>
               </div>
             </div>
 
-            {/* Eden Classic 3x3 */}
-            <div className="relative h-72 rounded-xl overflow-hidden shadow-xl group cursor-pointer">
+            {/* Eden Design */}
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group cursor-pointer">
               <Image
                 src="https://www.genspark.ai/api/files/s/HwoHJfJe"
                 alt="Eden Classic 3x3"
@@ -129,10 +91,10 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                 <div className="text-white">
-                  <span className="inline-block px-3 py-1 bg-green-600 rounded-full text-xs font-bold mb-2">EDEN DESIGN</span>
-                  <h3 className="text-2xl font-bold mb-1">Eden Classic 3×3</h3>
-                  <p className="text-sm mb-1">Design moderno con vetrate</p>
-                  <p className="text-lg font-bold text-green-400">€4.700</p>
+                  <span className="inline-block px-2 py-1 bg-green-500 rounded text-xs font-semibold mb-1">EDEN DESIGN</span>
+                  <h3 className="text-xl font-bold mb-1">Eden Classic</h3>
+                  <p className="text-xs mb-1">Design moderno</p>
+                  <p className="text-sm font-bold text-green-300">Da €4.700</p>
                 </div>
               </div>
             </div>
@@ -140,50 +102,34 @@ export default function Home() {
         </div>
 
         {/* CTA Principali */}
-        <div className="max-w-5xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6 mb-16">
           
           {/* CTA 1: Catalogo */}
           <Link href="/catalogo">
-            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer border-4 border-transparent hover:border-blue-500 group">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
-                    📦 Sfoglia il Catalogo
-                  </h2>
-                  <p className="text-lg text-gray-600">
-                    Guarda i nostri <strong>9 modelli standard</strong> con foto, prezzi e caratteristiche
-                  </p>
-                </div>
-                <div className="ml-8">
-                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer group">
+              <div className="text-center">
+                <div className="text-5xl mb-3">📦</div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
+                  Catalogo Modelli
+                </h2>
+                <p className="text-sm text-gray-600">
+                  9 modelli standard con prezzi
+                </p>
               </div>
             </div>
           </Link>
 
           {/* CTA 2: Configuratore */}
           <Link href="/configura">
-            <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer border-4 border-transparent hover:border-green-500 group">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition">
-                    🛠️ Configura Su Misura
-                  </h2>
-                  <p className="text-lg text-gray-600">
-                    Crea la <strong>tua casetta personalizzata</strong> scegliendo dimensioni e materiali
-                  </p>
-                </div>
-                <div className="ml-8">
-                  <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
+            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer group">
+              <div className="text-center">
+                <div className="text-5xl mb-3">🛠️</div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition">
+                  Configura Su Misura
+                </h2>
+                <p className="text-sm text-gray-600">
+                  Dimensioni e materiali personalizzati
+                </p>
               </div>
             </div>
           </Link>
