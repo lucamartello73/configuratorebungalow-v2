@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 // Deploy verificato: 2025-11-16
+// Test webhook GitHub → Vercel: attivo e funzionante ✅
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-50">
