@@ -8,6 +8,18 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-50">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-12">
+        {/* Banner Test Deploy */}
+        <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white p-6 rounded-2xl shadow-2xl mb-8 text-center">
+          <div className="flex items-center justify-center gap-4">
+            <div className="text-6xl">🚀</div>
+            <div>
+              <h2 className="text-3xl font-bold mb-2">SITO AGGIORNATO - NOVEMBRE 2025</h2>
+              <p className="text-xl">Deploy Test Riuscito ✅ | Commit: efe5122</p>
+            </div>
+            <div className="text-6xl">✨</div>
+          </div>
+        </div>
+
         <div className="text-center mb-12">
           <Image 
             src="https://page.gensparksite.com/img/5b071e78-f86b-448e-8321-b9d3f78d5be9.jpg"
