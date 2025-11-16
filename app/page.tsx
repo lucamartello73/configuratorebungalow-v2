@@ -1,25 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-// Deploy verificato: 2025-11-16
-// Test webhook GitHub → Vercel: attivo e funzionante ✅
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-50">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-12">
-        {/* Banner Test Deploy */}
-        <div className="bg-gradient-to-r from-green-500 to-blue-500 text-white p-6 rounded-2xl shadow-2xl mb-8 text-center">
-          <div className="flex items-center justify-center gap-4">
-            <div className="text-6xl">🚀</div>
-            <div>
-              <h2 className="text-3xl font-bold mb-2">SITO AGGIORNATO - NOVEMBRE 2025</h2>
-              <p className="text-xl">Deploy Test Riuscito ✅ | Commit: efe5122</p>
-            </div>
-            <div className="text-6xl">✨</div>
-          </div>
-        </div>
-
         <div className="text-center mb-12">
           <Image 
             src="https://page.gensparksite.com/img/5b071e78-f86b-448e-8321-b9d3f78d5be9.jpg"
@@ -34,7 +20,59 @@ export default function Home() {
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 font-medium mb-2">Sistema Martello1930</p>
           <p className="text-lg md:text-xl text-gray-600">Dal 1930 • Qualità Artigianale</p>
-          <p className="text-sm text-blue-600 font-semibold mt-2">✅ Deploy Verificato - Nov 2025</p>
+        </div>
+
+        {/* Galleria Immagini Casette */}
+        <div className="max-w-6xl mx-auto mb-12">
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Carport */}
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-xl group">
+              <Image
+                src="https://www.genspark.ai/api/files/s/ZVQs8due"
+                alt="Carport RIMINI"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                <div className="text-white">
+                  <h3 className="text-2xl font-bold mb-1">Carport</h3>
+                  <p className="text-sm">Protezione per auto e camper</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Casetta Attrezzi */}
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-xl group">
+              <Image
+                src="https://www.genspark.ai/api/files/s/NACsfzir"
+                alt="Casetta PENT"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                <div className="text-white">
+                  <h3 className="text-2xl font-bold mb-1">Casette</h3>
+                  <p className="text-sm">Spazio per attrezzi e hobbies</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Winter House */}
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-xl group">
+              <Image
+                src="https://www.genspark.ai/api/files/s/R02xtVRN"
+                alt="Winter House"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                <div className="text-white">
+                  <h3 className="text-2xl font-bold mb-1">Winter House</h3>
+                  <p className="text-sm">Abitabili tutto l'anno</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* CTA Principali */}
@@ -46,7 +84,7 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h2 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition">
-                    📦 Sfoglia il Catalogo ✨ NUOVO
+                    📦 Sfoglia il Catalogo
                   </h2>
                   <p className="text-lg text-gray-600">
                     Guarda i nostri <strong>9 modelli standard</strong> con foto, prezzi e caratteristiche
@@ -69,7 +107,7 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <h2 className="text-3xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition">
-                    🛠️ Configura Su Misura 🔥 AGGIORNATO
+                    🛠️ Configura Su Misura
                   </h2>
                   <p className="text-lg text-gray-600">
                     Crea la <strong>tua casetta personalizzata</strong> scegliendo dimensioni e materiali
