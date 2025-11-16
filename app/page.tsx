@@ -21,6 +21,7 @@ export default function Home() {
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 font-medium mb-2">Sistema Martello1930</p>
           <p className="text-lg md:text-xl text-gray-600">Dal 1930 • Qualità Artigianale</p>
+          <p className="text-sm text-blue-600 font-semibold mt-2">✅ Deploy Verificato - Nov 2025</p>
         </div>
 
         {/* CTA Principali */}
