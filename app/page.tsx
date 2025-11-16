@@ -6,20 +6,20 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-green-50">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <Image 
             src="https://page.gensparksite.com/img/5b071e78-f86b-448e-8321-b9d3f78d5be9.jpg"
             alt="Martello1930"
-            width={280}
-            height={168}
-            className="mx-auto mb-8 rounded-xl shadow-2xl"
+            width={140}
+            height={84}
+            className="mx-auto mb-6 rounded-lg shadow-lg"
             priority
           />
-          <h1 className="text-6xl font-extrabold text-gray-900 mb-4">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4">
             Casette in Legno 🏡
           </h1>
-          <p className="text-2xl text-gray-700 font-medium mb-2">Sistema Martello1930</p>
-          <p className="text-xl text-gray-600">Dal 1930 • Qualità Artigianale</p>
+          <p className="text-xl md:text-2xl text-gray-700 font-medium mb-2">Sistema Martello1930</p>
+          <p className="text-lg md:text-xl text-gray-600">Dal 1930 • Qualità Artigianale</p>
         </div>
 
         {/* CTA Principali */}
