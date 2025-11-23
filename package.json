@@ -1,7 +1,13 @@
 {
-  "name": "configuratorebungalow",
-  "version": "1.0.0",
+  "name": "configuratore-bungalow-martello1930",
+  "version": "2.0.0",
   "private": true,
+  "description": "Configuratore interattivo per bungalow su misura - MARTELLO1930",
+  "author": "MARTELLO1930",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucamartello73/configuratorebungalow-v2"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

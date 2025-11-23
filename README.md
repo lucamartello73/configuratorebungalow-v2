@@ -1,162 +1,289 @@
-# 🏡 Configuratore Casette Legno - Martello1930
+# 🏡 Configuratore Bungalow MARTELLO1930
 
-Sistema di configurazione online per casette in legno da giardino, carport, pergole e strutture su misura.
+Configuratore interattivo per bungalow su misura - Progetto dedicato solo al Configuratore Bungalow.
 
-**✨ Ultimo aggiornamento**: Layout homepage ottimizzato con logo ridimensionato
+---
 
-## 🚀 Deploy Rapido
+## 🎯 Descrizione Progetto
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flucamartello73%2Fconfiguratorbungalow&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY&envDescription=Credenziali%20Supabase%20necessarie%20per%20il%20funzionamento&envLink=https%3A%2F%2Fsupabase.com%2Fdashboard%2Fproject%2F_%2Fsettings%2Fapi&project-name=configuratore-casette-legno&repository-name=configuratore-casette-legno)
+Applicazione web Next.js 15 per la configurazione personalizzata di bungalow in legno. Permette ai clienti di:
+- Definire dimensioni personalizzate (lunghezza/larghezza)
+- Scegliere il numero di vani interni
+- Aggiungere note e allegati fotografici
+- Ricevere preventivo automatico via email
 
-📖 **Guida completa**: Vedi [DEPLOY_NOW.md](DEPLOY_NOW.md) per istruzioni dettagliate
+---
 
-## 🎯 Funzionalità
+## 🚀 Tech Stack
 
-### 👥 Lato Cliente
-- ✅ Visualizzazione modelli standard da catalogo
-- ✅ Configuratore interattivo su misura (dimensioni, materiale, accessori)
-- ✅ Calcolo prezzo stimato in tempo reale
-- ✅ Invio richiesta preventivo con dati cliente
-- ✅ Filtri per materiale e tipologia
-
-### 🔐 Lato Admin
-- ✅ Pannello amministrazione protetto (Supabase Auth)
-- ✅ Gestione modelli standard (CRUD)
-- ✅ Visualizzazione richieste clienti
-- ✅ Upload immagini su Supabase Storage
-- ✅ Gestione stato richieste
-
-## 🛠 Stack Tecnologico
-
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: TailwindCSS
-- **Backend**: Supabase (Database + Auth + Storage)
-- **Form**: React Hook Form + Yup
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript (strict mode)
+- **Styling**: Tailwind CSS
 - **Icons**: Lucide React
-- **Deploy**: Vercel
+- **Animations**: Framer Motion
+- **Forms**: React Hook Form + Zod validation
+- **Backend**: Supabase (database + storage)
+- **Deployment**: Vercel
 
-## 📋 Setup Progetto
-
-### 1. Installazione Dipendenze
-
-```bash
-pnpm install
-```
-
-### 2. Configurazione Supabase
-
-Crea un progetto su [Supabase](https://supabase.com) e configura le variabili d'ambiente:
-
-```bash
-cp .env.local.example .env.local
-```
-
-Compila `.env.local` con le tue credenziali Supabase.
-
-### 3. Schema Database
-
-Esegui nel SQL Editor di Supabase:
-
-```sql
--- Tabella modelli standard
-CREATE TABLE modelli_standard (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  nome VARCHAR(255) NOT NULL,
-  materiale VARCHAR(100),
-  descrizione TEXT,
-  dimensioni VARCHAR(100),
-  spessore_tavole VARCHAR(50),
-  prezzo NUMERIC(10,2),
-  fonte VARCHAR(100),
-  immagine_url TEXT,
-  creato_il TIMESTAMP DEFAULT NOW()
-);
-
--- Tabella configurazioni custom
-CREATE TABLE configurazioni_custom (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  larghezza NUMERIC(10,2),
-  profondita NUMERIC(10,2),
-  materiale VARCHAR(100),
-  accessori TEXT[],
-  prezzo_stimato NUMERIC(10,2),
-  cliente_nome VARCHAR(255),
-  telefono VARCHAR(50),
-  email VARCHAR(255),
-  zona VARCHAR(100),
-  stato VARCHAR(50) DEFAULT 'nuova',
-  creato_il TIMESTAMP DEFAULT NOW()
-);
-
--- Abilita Row Level Security
-ALTER TABLE modelli_standard ENABLE ROW LEVEL SECURITY;
-ALTER TABLE configurazioni_custom ENABLE ROW LEVEL SECURITY;
-
--- Policy lettura pubblica modelli
-CREATE POLICY "Lettura pubblica modelli" ON modelli_standard FOR SELECT USING (true);
-
--- Policy inserimento configurazioni pubblico
-CREATE POLICY "Inserimento configurazioni pubblico" ON configurazioni_custom FOR INSERT WITH CHECK (true);
-
--- Policy admin completo
-CREATE POLICY "Admin completo modelli" ON modelli_standard FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Admin completo configurazioni" ON configurazioni_custom FOR ALL USING (auth.role() = 'authenticated');
-```
-
-### 4. Avvio Sviluppo
-
-```bash
-pnpm dev
-```
-
-Apri [http://localhost:3000](http://localhost:3000)
+---
 
 ## 📁 Struttura Progetto
 
 ```
-configuratorebungalow/
-├── app/
-│   ├── layout.tsx              # Layout globale con footer
-│   ├── page.tsx                # Homepage
-│   ├── modelli/
-│   │   └── page.tsx            # Catalogo modelli
-│   ├── configura/
-│   │   └── page.tsx            # Configuratore su misura
-│   └── admin/
-│       ├── login/
-│       │   └── page.tsx        # Login admin
-│       └── page.tsx            # Dashboard admin
-├── components/
-│   ├── layout/
-│   │   ├── footer-martello1930.tsx   # Footer aziendale
-│   │   └── header-configuratore.tsx  # Header navigazione
-│   └── CasettaCard.tsx         # Card prodotto
-├── lib/
-│   └── supabase.ts             # Client Supabase
-└── public/
+/app
+  /bungalow         - Configuratore principale (5 step)
+    /conferma       - Pagina conferma invio
+  /admin            - Dashboard amministrazione
+  /catalogo         - Catalogo prodotti (legacy)
+  page.tsx          - Homepage dedicata Bungalow
+  layout.tsx        - Layout globale
+
+/components
+  /layout
+    header.tsx      - Header MARTELLO1930
+    footer.tsx      - Footer 4 colonne
+  /bungalow
+    DimensioniStep.tsx      - Step 1: Dimensioni
+    VaniStep.tsx            - Step 2: Numero vani
+    PiantaDinamica.tsx      - Visualizzazione pianta SVG
+    NoteUploadStep.tsx      - Step 3: Note e allegati
+    DatiClienteStep.tsx     - Step 4: Dati cliente
+    RiepilogoStep.tsx       - Step 5: Riepilogo finale
+
+/lib
+  bungalow-api.ts   - API Supabase per preventivi
+
+/types
+  bungalow.ts       - TypeScript types + Zod schema
 ```
 
-## 🚀 Deploy su Vercel
+---
 
-### Deploy con 1 Click
-Clicca sul bottone "Deploy with Vercel" in alto per un deploy immediato.
+## 🎨 Design System
 
-### Deploy Manuale
-1. Push su GitHub
-2. Connetti repository su [Vercel](https://vercel.com)
-3. Configura variabili d'ambiente da `.env.local`
-4. Deploy automatico
+### Colori
+- **Verde Primary**: `#6AB52B`
+- **Verde Hover**: `#5A9823`
+- **Verde Highlight**: `#E8F5E0`
+- **Grigio Background**: `#F8F8F8`
+- **Bianco**: `#FFFFFF`
 
-📖 **Guida dettagliata**: [DEPLOY_NOW.md](DEPLOY_NOW.md) | [DEPLOYMENT_INSTRUCTIONS.md](DEPLOYMENT_INSTRUCTIONS.md)
+### Componenti
+- Card con `rounded-2xl`, `shadow-md`, padding `p-6 md:p-8`
+- Pulsanti primari verdi con hover transition
+- Progress bar con step indicator verde
+- Footer 4 colonne responsive
 
-## 📞 Contatti Aziendali
+---
 
-- **Sede**: Via Aurelia, Sestri Levante (GE)
-- **Telefono**: +39 0185 167 656
-- **WhatsApp**: [wa.me/390185167656](https://wa.me/390185167656)
-- **Email**: soluzioni@martello1930.net
-- **Sito**: [www.martello1930.net](https://www.martello1930.net)
+## 🔧 Setup Locale
 
-## 📄 Licenza
+### Prerequisiti
+- Node.js 18+
+- npm o yarn
+- Account Supabase
 
-© 2025 Martello1930. Tutti i diritti riservati.
+### Installazione
+
+```bash
+# Clone repository
+git clone https://github.com/lucamartello73/configuratorebungalow-v2.git
+cd configuratorebungalow-v2
+
+# Installa dipendenze
+npm install
+
+# Crea file .env.local
+cp .env.example .env.local
+
+# Configura variabili d'ambiente:
+# NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+# NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+# SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+
+# Avvia dev server
+npm run dev
+```
+
+Apri [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 🗄️ Database Setup (Supabase)
+
+### Tabella: `configurazioni_bungalow`
+
+```sql
+CREATE TABLE configurazioni_bungalow (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  
+  -- Dimensioni
+  lunghezza INTEGER NOT NULL,
+  larghezza INTEGER NOT NULL,
+  numero_vani INTEGER NOT NULL,
+  
+  -- Dati cliente
+  cliente_nome TEXT NOT NULL,
+  email TEXT NOT NULL,
+  telefono TEXT NOT NULL,
+  
+  -- Extra
+  note TEXT,
+  allegati TEXT[], -- Array di URL immagini
+  
+  -- Status
+  status TEXT DEFAULT 'pending' -- pending, processing, completed
+);
+
+-- Enable Row Level Security
+ALTER TABLE configurazioni_bungalow ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Inserimento pubblico
+CREATE POLICY "Allow public insert" ON configurazioni_bungalow
+  FOR INSERT WITH CHECK (true);
+
+-- Policy: Lettura solo admin
+CREATE POLICY "Allow admin read" ON configurazioni_bungalow
+  FOR SELECT USING (auth.role() = 'authenticated');
+```
+
+### Storage: `bungalow-allegati`
+
+```sql
+-- Crea bucket
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('bungalow-allegati', 'bungalow-allegati', true);
+
+-- Policy: Upload pubblico
+CREATE POLICY "Allow public upload"
+ON storage.objects FOR INSERT
+TO public
+WITH CHECK (bucket_id = 'bungalow-allegati');
+```
+
+---
+
+## 🌐 Deploy su Vercel
+
+### Setup Automatico
+
+1. **Connetti GitHub**: Vai su [Vercel Dashboard](https://vercel.com)
+2. **Import Project**: Seleziona `lucamartello73/configuratorebungalow-v2`
+3. **Configura Environment Variables**:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+4. **Deploy**: Vercel farà deploy automatico ad ogni push su `main`
+
+### URL Production
+- **Live**: https://configuratorebungalow.vercel.app
+- **Admin**: https://configuratorebungalow.vercel.app/admin
+
+---
+
+## 📋 Funzionalità
+
+### 🏡 Configuratore (5 Step)
+
+**Step 1: Dimensioni**
+- Slider lunghezza (4m - 12m)
+- Slider larghezza (3m - 8m)
+- Preview pianta dinamica SVG
+
+**Step 2: Vani**
+- Selezione numero vani (1-4)
+- Visualizzazione pianta aggiornata
+
+**Step 3: Note e Allegati**
+- Campo note testuali
+- Upload multiplo immagini (drag & drop)
+- Preview immagini caricate
+
+**Step 4: Dati Cliente**
+- Nome completo
+- Email (validazione)
+- Telefono
+- Validazione con Zod schema
+
+**Step 5: Riepilogo**
+- Visualizzazione completa configurazione
+- Preview pianta finale
+- Lista allegati
+- Pulsante "Invia Preventivo"
+
+### 📊 Admin Dashboard
+
+- Login con Supabase Auth
+- Lista richieste preventivi
+- Filtri per status
+- Dettaglio configurazione + download allegati
+
+---
+
+## 🔐 Variabili d'Ambiente
+
+```env
+# Supabase (obbligatorio)
+NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJxxx...
+SUPABASE_SERVICE_ROLE_KEY=eyJxxx...
+
+# Vercel (automatico in deploy)
+VERCEL_URL=configuratorebungalow.vercel.app
+VERCEL_ENV=production
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+# Lint
+npm run lint
+
+# Type check
+npx tsc --noEmit
+
+# Build test
+npm run build
+
+# Start production
+npm run start
+```
+
+---
+
+## 📞 Contatti MARTELLO1930
+
+- **Sede**: Via Traversaro, 13 — 16039 SESTRI LEVANTE (GE)
+- **Telefono**: +39 0185 41793
+- **WhatsApp**: +39 0185 167 656
+- **Email**: info@martello1930.net
+- **Orari**: lun-ven 8:00-12:00 / 14:00-18:00 — sab 08:00-12:00
+
+---
+
+## 📝 License
+
+© 2025 Martello1930 - Tutti i diritti riservati
+
+---
+
+## 🚀 Changelog
+
+### v2.0.0 (2025-11-23)
+- ✅ Progetto dedicato SOLO a Configuratore Bungalow
+- ✅ Rimossi configuratori Casette Giardino e Vacanza
+- ✅ Nuova homepage dedicata con design MARTELLO1930
+- ✅ Header e Footer unificati
+- ✅ Palette colori verde brand (#6AB52B)
+- ✅ Framer Motion animations
+- ✅ TypeScript strict mode
+
+### v1.0.0 (2025-11-16)
+- ✅ Configuratore Bungalow 5 step
+- ✅ Validazione Zod
+- ✅ Upload immagini Supabase
+- ✅ Admin dashboard
+- ✅ Deploy Vercel
