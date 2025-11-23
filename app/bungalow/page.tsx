@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
-import { HeaderConfigurator } from '@/components/layout/header-configuratore'
+import { Header } from '@/components/layout/header'
+import { Footer } from '@/components/layout/footer'
 import { BungalowConfigSchema, type BungalowConfig } from '@/types/bungalow'
 import { DimensioniStep } from '@/components/bungalow/DimensioniStep'
 import { VaniStep } from '@/components/bungalow/VaniStep'
@@ -137,36 +138,61 @@ export default function BungalowConfiguratorePage() {
 
   return (
     <>
-      <HeaderConfigurator title="Configuratore Bungalow Su Misura" />
+      <Header />
+      
+      {/* Hero Section - Stile MARTELLO1930 */}
+      <div className="bg-gradient-to-br from-[#6AB52B] to-[#5A9823] text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Configura il Tuo Bungalow
+          </h1>
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            Strutture abitabili modulari, su misura per campeggi e agriturismi.
+          </p>
+        </div>
+      </div>
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 py-8 px-4">
+      {/* Mini Benefits Bar */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4 py-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
+              <span className="text-sm font-medium text-gray-700">Struttura abitativa modulare</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
+              <span className="text-sm font-medium text-gray-700">Isolamento termico</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
+              <span className="text-sm font-medium text-gray-700">Ideale per campeggi e agriturismi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="min-h-screen bg-[#F8F8F8] py-12 px-4">
         <div className="max-w-4xl mx-auto">
-          {/* Header con progress */}
+          {/* Header con progress - Stile MARTELLO1930 */}
           <div className="mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <button
-                onClick={() => router.push('/')}
-                className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition"
-              >
-                <Home className="w-5 h-5" />
-                <span className="hidden sm:inline">Torna alla home</span>
-              </button>
-              <div className="text-sm text-gray-600">
+            <div className="flex items-center justify-center mb-6">
+              <div className="text-sm font-medium text-gray-600">
                 Step {currentStep} di {STEPS.length}
               </div>
             </div>
 
-            {/* Progress bar */}
+            {/* Progress bar - Verde MARTELLO1930 */}
             <div className="relative">
-              <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-600 to-green-600 transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-[#6AB52B] to-[#5A9823] transition-all duration-500"
                   style={{ width: `${progress}%` }}
                 />
               </div>
               
               {/* Step indicators */}
-              <div className="flex justify-between mt-4">
+              <div className="flex justify-between mt-6">
                 {STEPS.map((step, index) => (
                   <button
                     key={step.id}
@@ -183,9 +209,9 @@ export default function BungalowConfiguratorePage() {
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white mb-2 ${
                         step.id < currentStep
-                          ? 'bg-green-600'
+                          ? 'bg-[#6AB52B]'
                           : step.id === currentStep
-                          ? 'bg-blue-600 ring-4 ring-blue-200'
+                          ? 'bg-[#6AB52B] ring-4 ring-[#E8F5E0]'
                           : 'bg-gray-300'
                       }`}
                     >
@@ -200,8 +226,8 @@ export default function BungalowConfiguratorePage() {
             </div>
           </div>
 
-          {/* Card principale */}
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          {/* Card principale - Stile MARTELLO1930 */}
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden">
             <div className="p-6 sm:p-8 lg:p-12">
               {/* Titolo step corrente */}
               <div className="mb-8">
@@ -249,7 +275,7 @@ export default function BungalowConfiguratorePage() {
                         type="button"
                         onClick={handleNext}
                         disabled={isSubmitting}
-                        className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg hover:from-blue-700 hover:to-green-700 transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+                        className="flex items-center gap-2 px-8 py-3 bg-[#6AB52B] text-white rounded-lg hover:bg-[#5A9823] transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
                       >
                         <span>Avanti</span>
                         <ChevronRight className="w-5 h-5" />
@@ -258,7 +284,7 @@ export default function BungalowConfiguratorePage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg hover:from-green-700 hover:to-emerald-700 transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+                        className="flex items-center gap-2 px-8 py-3 bg-[#6AB52B] text-white rounded-lg hover:bg-[#5A9823] transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
                       >
                         {isSubmitting ? (
                           <>
@@ -280,7 +306,7 @@ export default function BungalowConfiguratorePage() {
           </div>
 
           {/* Info aggiuntiva */}
-          <div className="mt-6 text-center text-sm text-gray-600">
+          <div className="mt-6 text-center text-sm text-gray-600 bg-white rounded-xl p-4 shadow-sm">
             <p>
               🔒 I tuoi dati sono protetti e utilizzati solo per elaborare la richiesta.
             </p>
@@ -290,6 +316,8 @@ export default function BungalowConfiguratorePage() {
           </div>
         </div>
       </div>
+      
+      <Footer />
     </>
   )
 }

@@ -5,10 +5,18 @@ import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { ArrowRight, ArrowLeft, Ruler, Package, User, Check } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Home as HomeIcon, Users, PackageCheck, User, Check } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-export default function ConfiguraPage() {
+// 🚫 LOGICA NON MODIFICATA - Tipologie casette vacanza
+const TIPOLOGIE = [
+  { id: 'preingresso', label: 'Pre-Ingresso', descrizione: 'Spazio coperto per ingressi' },
+  { id: 'vacanza', label: 'Casetta Vacanza', descrizione: 'Struttura abitativa temporanea' },
+  { id: 'agricamping', label: 'Agricampeggio', descrizione: 'Per strutture rurali' },
+  { id: 'camping', label: 'Campeggio', descrizione: 'Per aree camping' },
+]
+
+export default function CasetteVacanzaPage() {
   const [step, setStep] = useState(1)
   const [prezzoStimato, setPrezzoStimato] = useState(0)
   const [submitting, setSubmitting] = useState(false)
@@ -18,16 +26,36 @@ export default function ConfiguraPage() {
 
   const larghezza = watch('larghezza')
   const profondita = watch('profondita')
-  const materiale = watch('materiale')
+  const tipologia = watch('tipologia')
+  const posti_letto = watch('posti_letto')
 
-  // 🚫 LOGICA NON MODIFICATA - Calcolo prezzo
+  // 🚫 LOGICA NON MODIFICATA - Calcolo prezzo stimato
   useEffect(() => {
-    if (larghezza && profondita && materiale) {
+    if (larghezza && profondita && tipologia) {
       const area = (larghezza * profondita) / 10000
-      const prezzoBase = materiale === '20mm' ? 80 : 100
-      setPrezzoStimato(Math.round(area * prezzoBase))
+      let prezzoBase = 90
+      
+      switch (tipologia) {
+        case 'preingresso':
+          prezzoBase = 70
+          break
+        case 'vacanza':
+          prezzoBase = 100
+          break
+        case 'agricamping':
+          prezzoBase = 95
+          break
+        case 'camping':
+          prezzoBase = 85
+          break
+      }
+      
+      // Aggiungi costo per posti letto se specificato
+      const costoPostiLetto = posti_letto ? parseInt(posti_letto) * 200 : 0
+      
+      setPrezzoStimato(Math.round(area * prezzoBase) + costoPostiLetto)
     }
-  }, [larghezza, profondita, materiale])
+  }, [larghezza, profondita, tipologia, posti_letto])
 
   // 🚫 LOGICA NON MODIFICATA - Submit form
   async function onSubmit(data: any) {
@@ -36,7 +64,8 @@ export default function ConfiguraPage() {
       .from('configurazioni_custom')
       .insert({
         ...data,
-        prezzo_stimato: prezzoStimato
+        prezzo_stimato: prezzoStimato,
+        materiale: `Casetta ${tipologia}`
       })
 
     if (!error) {
@@ -65,7 +94,7 @@ export default function ConfiguraPage() {
               transition={{ duration: 0.4 }}
               className="text-4xl md:text-5xl font-bold mb-4"
             >
-              Configura la Tua Casetta da Giardino
+              Configura la Tua Casetta da Vacanza
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -73,7 +102,7 @@ export default function ConfiguraPage() {
               transition={{ duration: 0.4, delay: 0.1 }}
               className="text-xl text-white/90 max-w-3xl mx-auto"
             >
-              Strutture in legno su misura, configurazione online e preventivo immediato.
+              Soluzioni versatili per soggiorni, camping, pre-ingressi e agriturismi.
             </motion.p>
           </div>
         </div>
@@ -84,15 +113,15 @@ export default function ConfiguraPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div className="flex items-center justify-center gap-2">
                 <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
-                <span className="text-sm font-medium text-gray-700">Legno lamellare certificato</span>
+                <span className="text-sm font-medium text-gray-700">Perfetto per soggiorni brevi o stagionali</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
-                <span className="text-sm font-medium text-gray-700">Struttura robusta per esterni</span>
+                <span className="text-sm font-medium text-gray-700">Struttura leggera ma resistente</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
-                <span className="text-sm font-medium text-gray-700">Personalizzazione completa</span>
+                <span className="text-sm font-medium text-gray-700">Ideale per camping e agricampeggi</span>
               </div>
             </div>
           </div>
@@ -105,7 +134,7 @@ export default function ConfiguraPage() {
             {/* Progress Steps */}
             <div className="mb-8">
               <div className="flex items-center justify-center gap-4">
-                {[1, 2, 3].map((num) => (
+                {[1, 2, 3, 4].map((num) => (
                   <div key={num} className="flex items-center">
                     <div className={`flex items-center justify-center w-10 h-10 rounded-full font-bold transition-all ${
                       step >= num 
@@ -114,7 +143,7 @@ export default function ConfiguraPage() {
                     }`}>
                       {step > num ? <Check className="w-5 h-5" /> : num}
                     </div>
-                    {num < 3 && (
+                    {num < 4 && (
                       <div className={`w-16 h-1 mx-2 transition-all ${
                         step > num ? 'bg-[#6AB52B]' : 'bg-gray-300'
                       }`} />
@@ -122,15 +151,18 @@ export default function ConfiguraPage() {
                   </div>
                 ))}
               </div>
-              <div className="flex justify-center gap-20 mt-4">
+              <div className="flex justify-center gap-12 mt-4">
                 <span className={`text-sm font-medium ${step >= 1 ? 'text-[#6AB52B]' : 'text-gray-500'}`}>
-                  Dimensioni
+                  Tipologia
                 </span>
                 <span className={`text-sm font-medium ${step >= 2 ? 'text-[#6AB52B]' : 'text-gray-500'}`}>
-                  Materiale
+                  Dimensioni
                 </span>
                 <span className={`text-sm font-medium ${step >= 3 ? 'text-[#6AB52B]' : 'text-gray-500'}`}>
-                  Dati Cliente
+                  Dettagli
+                </span>
+                <span className={`text-sm font-medium ${step >= 4 ? 'text-[#6AB52B]' : 'text-gray-500'}`}>
+                  Contatti
                 </span>
               </div>
             </div>
@@ -144,15 +176,66 @@ export default function ConfiguraPage() {
             >
               <form onSubmit={handleSubmit(onSubmit)} className="bg-white rounded-2xl shadow-md p-6 md:p-8">
                 
-                {/* Step 1: Dimensioni */}
+                {/* Step 1: Tipologia */}
                 {step === 1 && (
                   <div>
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 bg-[#E8F5E0] rounded-full flex items-center justify-center">
-                        <Ruler className="w-6 h-6 text-[#6AB52B]" />
+                        <HomeIcon className="w-6 h-6 text-[#6AB52B]" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900">Dimensioni della Casetta</h2>
+                        <h2 className="text-2xl font-bold text-gray-900">Tipologia Casetta</h2>
+                        <p className="text-sm text-gray-600">Scegli il tipo di struttura</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      {TIPOLOGIE.map((tipo) => (
+                        <label 
+                          key={tipo.id}
+                          className="block p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-[#6AB52B] hover:bg-[#E8F5E0]/30 transition group"
+                        >
+                          <div className="flex items-start gap-3">
+                            <input 
+                              type="radio" 
+                              value={tipo.id} 
+                              {...register('tipologia', { required: true })} 
+                              className="mt-1 w-5 h-5 text-[#6AB52B] focus:ring-[#6AB52B]" 
+                            />
+                            <div className="flex-1">
+                              <span className="font-bold text-gray-900 text-lg block mb-1">{tipo.label}</span>
+                              <p className="text-sm text-gray-600">{tipo.descrizione}</p>
+                            </div>
+                          </div>
+                        </label>
+                      ))}
+                    </div>
+
+                    {errors.tipologia && (
+                      <span className="text-red-500 text-sm mt-2 block">Seleziona una tipologia</span>
+                    )}
+
+                    <button 
+                      type="button" 
+                      onClick={() => setStep(2)} 
+                      disabled={!tipologia}
+                      className="mt-8 w-full bg-[#6AB52B] text-white px-6 py-3 rounded-lg hover:bg-[#5A9823] transition disabled:bg-gray-300 disabled:cursor-not-allowed font-semibold flex items-center justify-center gap-2"
+                    >
+                      Avanti
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                )}
+
+                {/* Step 2: Dimensioni */}
+                {step === 2 && (
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-12 h-12 bg-[#E8F5E0] rounded-full flex items-center justify-center">
+                        <PackageCheck className="w-6 h-6 text-[#6AB52B]" />
+                      </div>
+                      <div>
+                        <h2 className="text-2xl font-bold text-gray-900">Dimensioni</h2>
                         <p className="text-sm text-gray-600">Inserisci le misure desiderate</p>
                       </div>
                     </div>
@@ -166,7 +249,7 @@ export default function ConfiguraPage() {
                           type="number" 
                           {...register('larghezza', { required: true, min: 100 })} 
                           className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-[#6AB52B] focus:outline-none transition" 
-                          placeholder="es. 300"
+                          placeholder="es. 400"
                         />
                         {errors.larghezza && (
                           <span className="text-red-500 text-sm mt-1 block">Campo obbligatorio (min 100cm)</span>
@@ -181,7 +264,7 @@ export default function ConfiguraPage() {
                           type="number" 
                           {...register('profondita', { required: true, min: 100 })} 
                           className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-[#6AB52B] focus:outline-none transition" 
-                          placeholder="es. 240"
+                          placeholder="es. 350"
                         />
                         {errors.profondita && (
                           <span className="text-red-500 text-sm mt-1 block">Campo obbligatorio (min 100cm)</span>
@@ -189,66 +272,66 @@ export default function ConfiguraPage() {
                       </div>
                     </div>
 
-                    <button 
-                      type="button" 
-                      onClick={() => setStep(2)} 
-                      disabled={!larghezza || !profondita}
-                      className="mt-8 w-full bg-[#6AB52B] text-white px-6 py-3 rounded-lg hover:bg-[#5A9823] transition disabled:bg-gray-300 disabled:cursor-not-allowed font-semibold flex items-center justify-center gap-2"
-                    >
-                      Avanti
-                      <ArrowRight className="w-5 h-5" />
-                    </button>
+                    <div className="flex gap-4 mt-8">
+                      <button 
+                        type="button" 
+                        onClick={() => setStep(1)} 
+                        className="flex-1 bg-white border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition font-semibold flex items-center justify-center gap-2"
+                      >
+                        <ArrowLeft className="w-5 h-5" />
+                        Indietro
+                      </button>
+                      <button 
+                        type="button" 
+                        onClick={() => setStep(3)} 
+                        disabled={!larghezza || !profondita}
+                        className="flex-[2] bg-[#6AB52B] text-white px-6 py-3 rounded-lg hover:bg-[#5A9823] transition disabled:bg-gray-300 disabled:cursor-not-allowed font-semibold flex items-center justify-center gap-2"
+                      >
+                        Avanti
+                        <ArrowRight className="w-5 h-5" />
+                      </button>
+                    </div>
                   </div>
                 )}
 
-                {/* Step 2: Materiale */}
-                {step === 2 && (
+                {/* Step 3: Dettagli */}
+                {step === 3 && (
                   <div>
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 bg-[#E8F5E0] rounded-full flex items-center justify-center">
-                        <Package className="w-6 h-6 text-[#6AB52B]" />
+                        <Users className="w-6 h-6 text-[#6AB52B]" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900">Materiale</h2>
-                        <p className="text-sm text-gray-600">Scegli lo spessore delle tavole</p>
+                        <h2 className="text-2xl font-bold text-gray-900">Dettagli Aggiuntivi</h2>
+                        <p className="text-sm text-gray-600">Informazioni utili (opzionali)</p>
                       </div>
                     </div>
 
-                    <div className="space-y-4">
-                      <label className="block p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-[#6AB52B] hover:bg-[#E8F5E0]/30 transition group">
-                        <div className="flex items-start gap-3">
-                          <input 
-                            type="radio" 
-                            value="20mm" 
-                            {...register('materiale', { required: true })} 
-                            className="mt-1 w-5 h-5 text-[#6AB52B] focus:ring-[#6AB52B]" 
-                          />
-                          <div className="flex-1">
-                            <span className="font-bold text-gray-900 text-lg block mb-1">Tavole 20mm</span>
-                            <p className="text-sm text-gray-600">Ideale per casette piccole e medie</p>
-                          </div>
-                        </div>
-                      </label>
+                    <div className="space-y-6">
+                      <div>
+                        <label className="block mb-2">
+                          <span className="text-sm font-semibold text-gray-700">Numero posti letto (opzionale)</span>
+                        </label>
+                        <input 
+                          type="number" 
+                          {...register('posti_letto', { min: 0, max: 10 })} 
+                          className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-[#6AB52B] focus:outline-none transition" 
+                          placeholder="es. 4"
+                        />
+                      </div>
 
-                      <label className="block p-5 border-2 border-gray-300 rounded-xl cursor-pointer hover:border-[#6AB52B] hover:bg-[#E8F5E0]/30 transition group">
-                        <div className="flex items-start gap-3">
-                          <input 
-                            type="radio" 
-                            value="30mm" 
-                            {...register('materiale', { required: true })} 
-                            className="mt-1 w-5 h-5 text-[#6AB52B] focus:ring-[#6AB52B]" 
-                          />
-                          <div className="flex-1">
-                            <span className="font-bold text-gray-900 text-lg block mb-1">Tavole 30mm</span>
-                            <p className="text-sm text-gray-600">Maggiore resistenza e isolamento</p>
-                          </div>
-                        </div>
-                      </label>
+                      <div>
+                        <label className="block mb-2">
+                          <span className="text-sm font-semibold text-gray-700">Note aggiuntive (opzionale)</span>
+                        </label>
+                        <textarea
+                          {...register('note')}
+                          rows={4}
+                          className="w-full border-2 border-gray-300 rounded-lg px-4 py-3 focus:border-[#6AB52B] focus:outline-none transition resize-none"
+                          placeholder="Descrivi eventuali esigenze specifiche..."
+                        />
+                      </div>
                     </div>
-
-                    {errors.materiale && (
-                      <span className="text-red-500 text-sm mt-2 block">Seleziona un materiale</span>
-                    )}
 
                     {prezzoStimato > 0 && (
                       <motion.div
@@ -265,7 +348,7 @@ export default function ConfiguraPage() {
                     <div className="flex gap-4 mt-8">
                       <button 
                         type="button" 
-                        onClick={() => setStep(1)} 
+                        onClick={() => setStep(2)} 
                         className="flex-1 bg-white border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition font-semibold flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-5 h-5" />
@@ -273,9 +356,8 @@ export default function ConfiguraPage() {
                       </button>
                       <button 
                         type="button" 
-                        onClick={() => setStep(3)} 
-                        disabled={!materiale}
-                        className="flex-[2] bg-[#6AB52B] text-white px-6 py-3 rounded-lg hover:bg-[#5A9823] transition disabled:bg-gray-300 disabled:cursor-not-allowed font-semibold flex items-center justify-center gap-2"
+                        onClick={() => setStep(4)}
+                        className="flex-[2] bg-[#6AB52B] text-white px-6 py-3 rounded-lg hover:bg-[#5A9823] transition font-semibold flex items-center justify-center gap-2"
                       >
                         Avanti
                         <ArrowRight className="w-5 h-5" />
@@ -284,8 +366,8 @@ export default function ConfiguraPage() {
                   </div>
                 )}
 
-                {/* Step 3: Dati Cliente */}
-                {step === 3 && (
+                {/* Step 4: Dati Cliente */}
+                {step === 4 && (
                   <div>
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 bg-[#E8F5E0] rounded-full flex items-center justify-center">
@@ -347,7 +429,7 @@ export default function ConfiguraPage() {
                     <div className="flex gap-4 mt-8">
                       <button 
                         type="button" 
-                        onClick={() => setStep(2)} 
+                        onClick={() => setStep(3)} 
                         className="flex-1 bg-white border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition font-semibold flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-5 h-5" />
