@@ -151,13 +151,20 @@ export default function Home() {
             Non trovi il modello adatto?
           </h3>
           <p className="text-lg text-gray-600 mb-6">
-            Configura la tua casetta su misura con il nostro configuratore interattivo
+            Configura la tua struttura su misura con i nostri configuratori interattivi
           </p>
-          <Link href="/configura">
-            <button className="bg-[#1b6d7f] hover:bg-[#155a6a] text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-200">
-              Configuratore Su Misura
-            </button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/bungalow">
+              <button className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 shadow-lg hover:shadow-xl">
+                🏡 Configuratore Bungalow
+              </button>
+            </Link>
+            <Link href="/configura">
+              <button className="bg-[#1b6d7f] hover:bg-[#155a6a] text-white font-bold py-4 px-8 rounded-lg text-lg transition-colors duration-200">
+                Configuratore Casette
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
 
