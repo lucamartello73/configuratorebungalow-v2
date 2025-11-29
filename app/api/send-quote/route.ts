@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
       const clientMailOptions = {
         from: emailConfig.from,
         to: email,
-        subject: `✅ Conferma Ricezione Richiesta - Martello 1930`,
+        subject: `Conferma Richiesta BUNGALOW - Martello 1930`,
         html: getClientEmailTemplate(emailData),
         replyTo: emailConfig.replyTo,
       }
@@ -132,7 +132,7 @@ export async function POST(request: NextRequest) {
         from: emailConfig.from,
         to: emailConfig.adminEmail,
         replyTo: email, // Reply diretta al cliente
-        subject: `🔔 Nuova Richiesta: ${nome} - ${tipoRichiesta.toUpperCase()}`,
+        subject: `[BUNGALOW] Nuova Richiesta: ${nome} - ${tipoRichiesta.toUpperCase()}`,
         text: getTeamEmailTemplate(emailData),
       }
 
