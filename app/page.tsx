@@ -1,121 +1,106 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
-import { Ruler, Users, CheckCircle, ArrowRight } from 'lucide-react'
+// ✅ Homepage configuratore bungalow Martello1930 – rebuild completo
+// Forza rigenerazione immediata
+export const revalidate = 0
 
-export default function HomePage() {
+import Image from "next/image"
+import Link from "next/link"
+
+export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-
-      {/* Hero Section */}
-      <section className="bg-white py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left side - Text content */}
-              <div className="text-center md:text-left">
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-                  Configuratore Bungalow MARTELLO1930
-                </h1>
-                <p className="text-xl md:text-2xl mb-10 text-gray-600">
-                  Progetta il tuo bungalow su misura in pochi semplici passi
-                </p>
-                <Link href="/bungalow">
-                  <button className="bg-black text-white hover:bg-gray-800 font-semibold py-4 px-10 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center gap-3">
-                    Inizia configurazione
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </Link>
-              </div>
-              
-              {/* Right side - Bungalow image */}
-              <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/bungalow-example.jpg"
-                  alt="Bungalow Martello1930 - Esempio casetta in legno"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
+    <main className="flex flex-col min-h-screen bg-white text-gray-900">
+      {/* HEADER */}
+      <header className="w-full border-b border-gray-200 bg-white sticky top-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between p-4">
+          <div className="flex items-center space-x-3">
+            <Image src="/logo-martello1930.png" alt="Martello1930" width={140} height={40} />
           </div>
+          <nav className="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
+            <Link href="/">Home</Link>
+            <Link href="/modelli">Modelli</Link>
+            <Link href="/casette">Casette Giardino</Link>
+            <Link href="/bungalow">Bungalow</Link>
+            <Link href="/catalogo">Catalogo</Link>
+          </nav>
         </div>
-      </section>
+      </header>
 
-      {/* Benefits Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-semibold text-center text-gray-900 mb-12">
-            Perché scegliere i nostri bungalow?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Benefit 1 */}
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-gray-100 w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Ruler className="w-7 h-7 text-gray-700" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Su Misura
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Configura dimensioni e finiture secondo le tue esigenze
-              </p>
-            </div>
-
-            {/* Benefit 2 */}
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-gray-100 w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <CheckCircle className="w-7 h-7 text-gray-700" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Qualità Garantita
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Materiali certificati e lavorazione artigianale dal 1930
-              </p>
-            </div>
-
-            {/* Benefit 3 */}
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-gray-100 w-14 h-14 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="w-7 h-7 text-gray-700" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Assistenza Completa
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Dalla progettazione all'installazione
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works Section - rimossa perché già coperta dalla sezione Benefits */}
-
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">
-            Pronto per iniziare?
-          </h2>
-          <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Configura il tuo bungalow personalizzato e ricevi un preventivo gratuito in pochi minuti
+      {/* HERO */}
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between mx-auto max-w-7xl p-8">
+        <div className="flex-1">
+          <h1 className="text-3xl md:text-5xl font-semibold mb-4">
+            Configuratore Bungalow MARTELLO1930
+          </h1>
+          <p className="text-gray-600 text-lg mb-6">
+            Progetta il tuo bungalow su misura in pochi semplici passi.
           </p>
-          <Link href="/bungalow">
-            <button className="bg-black text-white hover:bg-gray-800 font-semibold py-4 px-12 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center gap-3">
-              Inizia Ora
-              <ArrowRight className="w-5 h-5" />
-            </button>
+          <Link
+            href="/bungalow"
+            className="inline-block bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition"
+          >
+            Inizia configurazione →
           </Link>
         </div>
+        <div className="flex-1 flex justify-center mb-6 md:mb-0">
+          <Image
+            src="/bungalow-example.jpg"
+            alt="Bungalow Martello1930"
+            width={600}
+            height={400}
+            className="rounded-2xl shadow-2xl object-cover"
+          />
+        </div>
       </section>
 
-      <Footer />
-    </div>
+      {/* BENEFITS */}
+      <section className="bg-gray-50 py-12">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6 px-6">
+          <div className="text-center">
+            <h3 className="font-semibold text-lg mb-2">🏗️ Su Misura</h3>
+            <p className="text-gray-600 text-sm">Configura dimensioni e finiture personalizzate.</p>
+          </div>
+          <div className="text-center">
+            <h3 className="font-semibold text-lg mb-2">💎 Qualità Garantita</h3>
+            <p className="text-gray-600 text-sm">Materiali certificati e lavorazione artigianale dal 1930.</p>
+          </div>
+          <div className="text-center">
+            <h3 className="font-semibold text-lg mb-2">🤝 Assistenza Completa</h3>
+            <p className="text-gray-600 text-sm">Dalla progettazione al montaggio, seguiti passo dopo passo.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-white text-center py-12">
+        <h2 className="text-3xl font-semibold mb-4">Pronto per iniziare?</h2>
+        <p className="text-gray-600 mb-6">
+          Configura il tuo bungalow personalizzato e ricevi un preventivo gratuito in pochi minuti.
+        </p>
+        <Link
+          href="/bungalow"
+          className="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition"
+        >
+          Inizia Ora
+        </Link>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="bg-gray-100 text-gray-700 py-10 mt-auto">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 px-6">
+          <div>
+            <h4 className="font-semibold mb-2">MARTELLO 1930</h4>
+            <p>Legnami • Brico • Outdoor</p>
+            <p className="text-sm mt-2">
+              Via Traversaro, 13 – Sestri Levante (GE)
+              <br />Via Aurelia – Sestri Levante (GE)
+            </p>
+          </div>
+          <div>
+            <p>📞 0185.41793</p>
+            <p>📧 info@martello1930.net</p>
+            <p className="mt-2">🕒 Lun–Ven 8:00–18:00 | Sab 8:00–12:00</p>
+          </div>
+        </div>
+      </footer>
+    </main>
   )
 }
