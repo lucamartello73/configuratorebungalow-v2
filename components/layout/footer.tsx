@@ -34,7 +34,7 @@ export function Footer() {
                   href="https://www.facebook.com/martello1930"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook className="h-5 w-5" />
@@ -43,7 +43,7 @@ export function Footer() {
                   href="https://www.instagram.com/martello1930"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-5 w-5" />
@@ -52,7 +52,7 @@ export function Footer() {
                   href="https://www.tiktok.com/@martello1930"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                   aria-label="TikTok"
                 >
                   <Music2 className="h-5 w-5" />
@@ -61,7 +61,7 @@ export function Footer() {
                   href="https://wa.me/390185167656"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                   aria-label="WhatsApp"
                 >
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@ export function Footer() {
             {/* Colonna 2: Sede Operativa */}
             <div>
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <MapPin className="h-5 w-5 text-[#6AB52B]" />
+                <MapPin className="h-5 w-5 text-gray-700" />
                 Sede Operativa
               </h3>
               <div className="space-y-2 text-sm text-gray-600">
@@ -84,7 +84,7 @@ export function Footer() {
                   href="https://www.google.com/maps/search/Via+Aurelia+Sestri+Levante+GE"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#6AB52B] hover:text-[#5A9823] transition-colors mt-2"
+                  className="inline-flex items-center gap-1 text-gray-900 hover:text-black transition-colors mt-2"
                 >
                   Vedi su Maps
                   <ExternalLink className="h-3 w-3" />
@@ -103,27 +103,27 @@ export function Footer() {
             {/* Colonna 3: Contatti */}
             <div>
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <Phone className="h-5 w-5 text-[#6AB52B]" />
+                <Phone className="h-5 w-5 text-gray-700" />
                 Contatti
               </h3>
               <div className="space-y-3 text-sm">
                 <a
                   href="tel:+390185167656"
-                  className="flex items-center gap-2 text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   <Phone className="h-4 w-4" />
                   +39 0185 167 656
                 </a>
                 <a
                   href="mailto:soluzioni@martello1930.net"
-                  className="flex items-center gap-2 text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   <Mail className="h-4 w-4" />
                   soluzioni@martello1930.net
                 </a>
                 <a
                   href="mailto:info@martello1930.net"
-                  className="flex items-center gap-2 text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   <Mail className="h-4 w-4" />
                   info@martello1930.net
@@ -137,25 +137,25 @@ export function Footer() {
               <nav className="space-y-2 text-sm">
                 <Link
                   href="/bungalow"
-                  className="block text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="block text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Configuratore Bungalow
                 </Link>
                 <Link
                   href="/configura"
-                  className="block text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="block text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Configuratore Casette
                 </Link>
                 <Link
                   href="/modelli"
-                  className="block text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="block text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Modelli Standard
                 </Link>
                 <Link
                   href="/catalogo"
-                  className="block text-gray-600 hover:text-[#6AB52B] transition-colors"
+                  className="block text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Catalogo Completo
                 </Link>
@@ -166,7 +166,7 @@ export function Footer() {
                   href="https://www.martello1930.net"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[#6AB52B] hover:text-[#5A9823] transition-colors font-medium"
+                  className="inline-flex items-center gap-2 text-gray-900 hover:text-black transition-colors font-medium"
                 >
                   www.martello1930.net
                   <ExternalLink className="h-4 w-4" />

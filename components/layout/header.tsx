@@ -18,22 +18,22 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      {/* Top Bar Verde */}
-      <div className="bg-[#6AB52B] text-white">
+      {/* Top Bar Nero */}
+      <div className="bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="flex h-10 items-center justify-between text-sm">
             {/* Contatti Sinistra */}
             <div className="flex items-center gap-6">
               <a
                 href="tel:+390185167566"
-                className="flex items-center gap-2 hover:text-[#E8F5E0] transition-colors"
+                className="flex items-center gap-2 hover:text-gray-300 transition-colors"
               >
                 <Phone className="h-3.5 w-3.5" />
                 <span className="hidden sm:inline">+39 0185 167 566</span>
               </a>
               <a
                 href="mailto:soluzioni@martello1930.net"
-                className="flex items-center gap-2 hover:text-[#E8F5E0] transition-colors"
+                className="flex items-center gap-2 hover:text-gray-300 transition-colors"
               >
                 <Mail className="h-3.5 w-3.5" />
                 <span className="hidden md:inline">soluzioni@martello1930.net</span>
@@ -46,7 +46,7 @@ export function Header() {
                 href="https://www.facebook.com/martello1930"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#E8F5E0] transition-colors"
+                className="hover:text-gray-300 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-4 w-4" />
@@ -55,7 +55,7 @@ export function Header() {
                 href="https://www.instagram.com/martello1930"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#E8F5E0] transition-colors"
+                className="hover:text-gray-300 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-4 w-4" />
@@ -64,7 +64,7 @@ export function Header() {
                 href="https://www.tiktok.com/@martello1930"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#E8F5E0] transition-colors"
+                className="hover:text-gray-300 transition-colors"
                 aria-label="TikTok"
               >
                 <Music2 className="h-4 w-4" />
@@ -73,7 +73,7 @@ export function Header() {
                 href="https://wa.me/390185167656"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#E8F5E0] transition-colors"
+                className="hover:text-gray-300 transition-colors"
                 aria-label="WhatsApp"
               >
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -110,7 +110,7 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-medium text-gray-700 hover:text-[#6AB52B] transition-colors"
+                  className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -120,7 +120,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-700 hover:text-[#6AB52B] transition-colors"
+              className="lg:hidden p-2 text-gray-700 hover:text-gray-900 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -142,7 +142,7 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-[#E8F5E0] hover:text-[#6AB52B] rounded-lg transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors"
               >
                 {item.name}
               </Link>
