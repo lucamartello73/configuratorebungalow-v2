@@ -150,7 +150,7 @@ export default function AdminBungalowDashboard() {
           </div>
 
           {/* Card: Nuove ultima settimana */}
-          <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white rounded-xl shadow-lg p-6">
+          <div className="bg-gradient-to-br bg-gray-900 text-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between mb-2">
               <TrendingUp className="w-8 h-8" />
               <span className="text-2xl font-bold">

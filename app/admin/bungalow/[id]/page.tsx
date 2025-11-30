@@ -174,7 +174,7 @@ export default function AdminPreventivoDetail() {
           <div className="lg:col-span-2 space-y-6">
             {/* Card: Info Generale */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-4">
+              <div className="bg-gradient-to-r bg-gray-900 text-white px-6 py-4">
                 <h2 className="text-2xl font-bold">Richiesta Preventivo</h2>
                 <p className="text-blue-100 text-sm">
                   ID: {id.slice(0, 8).toUpperCase()}

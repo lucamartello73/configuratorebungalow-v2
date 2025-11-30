@@ -40,7 +40,7 @@ export default function ConfermaPage() {
     return (
       <>
         <HeaderConfigurator title="Conferma Richiesta" />
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 flex items-center justify-center">
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 flex items-center justify-center">
           <div className="text-center">
             <Loader2 className="w-16 h-16 text-blue-600 animate-spin mx-auto mb-4" />
             <p className="text-gray-600">Caricamento...</p>
@@ -84,7 +84,7 @@ export default function ConfermaPage() {
     <>
       <HeaderConfigurator title="Richiesta Inviata" />
 
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 py-12 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 py-12 px-4">
         <div className="max-w-3xl mx-auto">
           {/* Success Card */}
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden mb-6">
@@ -102,7 +102,7 @@ export default function ConfermaPage() {
             {/* Body Content */}
             <div className="p-8">
               {/* ID Richiesta */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <div className="bg-blue-50 border border-gray-200 rounded-lg p-4 mb-6">
                 <p className="text-sm text-blue-800 mb-1">Codice richiesta:</p>
                 <p className="text-xl font-mono font-bold text-blue-900">
                   {id.slice(0, 8).toUpperCase()}
@@ -153,7 +153,7 @@ export default function ConfermaPage() {
               </div>
 
               {/* Prossimi Passi */}
-              <div className="bg-gradient-to-br from-blue-50 to-green-50 border border-blue-200 rounded-lg p-6 mb-6">
+              <div className="bg-gradient-to-br bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">
                   🚀 Prossimi Passi
                 </h3>
