@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { Ruler, Users, CheckCircle, ArrowRight } from 'lucide-react'
@@ -11,19 +12,36 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="bg-white py-20 md:py-32">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
-              Configuratore Bungalow MARTELLO1930
-            </h1>
-            <p className="text-xl md:text-2xl mb-10 text-gray-600">
-              Progetta il tuo bungalow su misura in pochi semplici passi
-            </p>
-            <Link href="/bungalow">
-              <button className="bg-black text-white hover:bg-gray-800 font-semibold py-4 px-10 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center gap-3">
-                Inizia configurazione
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </Link>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left side - Text content */}
+              <div className="text-center md:text-left">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
+                  Configuratore Bungalow MARTELLO1930
+                </h1>
+                <p className="text-xl md:text-2xl mb-10 text-gray-600">
+                  Progetta il tuo bungalow su misura in pochi semplici passi
+                </p>
+                <Link href="/bungalow">
+                  <button className="bg-black text-white hover:bg-gray-800 font-semibold py-4 px-10 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center gap-3">
+                    Inizia configurazione
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </Link>
+              </div>
+              
+              {/* Right side - Bungalow image */}
+              <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="https://www.genspark.ai/api/files/s/PSZuO1lH"
+                  alt="Bungalow Martello1930 - Esempio casetta in legno rosa con finestre bianche"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
