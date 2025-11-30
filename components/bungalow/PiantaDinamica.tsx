@@ -143,13 +143,13 @@ export function PiantaDinamica({ numeroVani }: PiantaDinamicaProps) {
   return (
     <div className="bg-white border-2 border-blue-200 rounded-xl overflow-hidden shadow-lg">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-3">
+      <div className="bg-gray-900 text-white px-6 py-3">
         <h3 className="font-bold text-lg">📐 Pianta Indicativa</h3>
         <p className="text-sm opacity-90">{pianta.descrizione}</p>
       </div>
 
       {/* SVG Container */}
-      <div className="p-6 bg-gradient-to-br from-blue-50 to-white">
+      <div className="p-6 bg-gray-50">
         {pianta.svg}
       </div>
 
