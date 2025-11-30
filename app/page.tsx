@@ -33,8 +33,8 @@ export default function HomePage() {
               {/* Right side - Bungalow image */}
               <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://www.genspark.ai/api/files/s/PSZuO1lH"
-                  alt="Bungalow Martello1930 - Esempio casetta in legno rosa con finestre bianche"
+                  src="/bungalow-example.jpg"
+                  alt="Bungalow Martello1930 - Esempio casetta in legno"
                   fill
                   className="object-cover"
                   priority
