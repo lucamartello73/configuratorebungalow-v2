@@ -141,12 +141,12 @@ export default function BungalowConfiguratorePage() {
       <Header />
       
       {/* Hero Section - Stile MARTELLO1930 */}
-      <div className="bg-gradient-to-br from-[#6AB52B] to-[#5A9823] text-white py-16">
+      <div className="bg-white border-b border-gray-200 py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
             Configura il Tuo Bungalow
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Strutture abitabili modulari, su misura per campeggi e agriturismi.
           </p>
         </div>
@@ -157,15 +157,15 @@ export default function BungalowConfiguratorePage() {
         <div className="container mx-auto px-4 py-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-900 rounded-full"></div>
               <span className="text-sm font-medium text-gray-700">Struttura abitativa modulare</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-900 rounded-full"></div>
               <span className="text-sm font-medium text-gray-700">Isolamento termico</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-[#6AB52B] rounded-full"></div>
+              <div className="w-2 h-2 bg-gray-900 rounded-full"></div>
               <span className="text-sm font-medium text-gray-700">Ideale per campeggi e agriturismi</span>
             </div>
           </div>
@@ -182,11 +182,11 @@ export default function BungalowConfiguratorePage() {
               </div>
             </div>
 
-            {/* Progress bar - Verde MARTELLO1930 */}
+            {/* Progress bar - Nero MARTELLO1930 */}
             <div className="relative">
               <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-[#6AB52B] to-[#5A9823] transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-gray-900 to-gray-700 transition-all duration-500"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -209,9 +209,9 @@ export default function BungalowConfiguratorePage() {
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white mb-2 ${
                         step.id < currentStep
-                          ? 'bg-[#6AB52B]'
+                          ? 'bg-gray-900'
                           : step.id === currentStep
-                          ? 'bg-[#6AB52B] ring-4 ring-[#E8F5E0]'
+                          ? 'bg-black ring-4 ring-gray-200'
                           : 'bg-gray-300'
                       }`}
                     >
@@ -275,7 +275,7 @@ export default function BungalowConfiguratorePage() {
                         type="button"
                         onClick={handleNext}
                         disabled={isSubmitting}
-                        className="flex items-center gap-2 px-8 py-3 bg-[#6AB52B] text-white rounded-lg hover:bg-[#5A9823] transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+                        className="flex items-center gap-2 px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
                       >
                         <span>Avanti</span>
                         <ChevronRight className="w-5 h-5" />
@@ -284,7 +284,7 @@ export default function BungalowConfiguratorePage() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex items-center gap-2 px-8 py-3 bg-[#6AB52B] text-white rounded-lg hover:bg-[#5A9823] transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
+                        className="flex items-center gap-2 px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
                       >
                         {isSubmitting ? (
                           <>
